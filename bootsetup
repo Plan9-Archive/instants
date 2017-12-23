@@ -94,7 +94,10 @@ case go
 	logprog cp /tmp/plan9.ini /n/9fat/plan9.ini
 
 	# copy kernel
-	logprog cp /n/newfs/386/9pc /n/9fat/9pc
+	logprog cp /n/newfs/386/9ants /n/9fat/9ants
+
+	# copy tools.tgz
+	logprog cp /n/newfs/386/tools.tgz /n/9fat/tools.tgz
 
 	# copy efi bootloader
 	logprog mkdir -p /n/9fat/efi/boot
