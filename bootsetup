@@ -31,10 +31,12 @@ case go
 	export 9fat
 
 	if(! test -f /tmp/plan9.ini) {
-		bootfile=9pc
+		bootfile=9ants
 		@{
 			echo 'bootfile='^$bootfile
+			echo 'bootcmd=plan9rc'
 			echo 'bootargs=local!'^$fs' '$"fsflags
+			echo 'privpasswd='^$password
 			if(~ $#nvram 1)
 				echo 'nvram='^$nvram
 			echo 'mouseport='^$mouseport
