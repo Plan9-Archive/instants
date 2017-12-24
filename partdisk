@@ -31,7 +31,8 @@ case go
 		default=()
 	prompt $default 'Disk to partition' $disks
 	disk=$rd
-	export disk
+	fsdisk=$disk
+	export fsdisk
 
 	diskedit=disk/fdisk
 	if(disk/edisk -p /dev/$disk/data >/dev/null >[2=1])
