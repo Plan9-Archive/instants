@@ -37,7 +37,7 @@ case go
 			echo 'bootcmd=plan9rc'
 			echo 'bootargs=local!'^$fs
 			if(~ $#password 1)
-				echo 'privpasswd='^$password
+				echo 'privpassword='^$password
 			if(~ $#nvram 1)
 				echo 'nvram='^$nvram
 			if(~ $fstype fossil)
