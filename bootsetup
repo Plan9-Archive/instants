@@ -45,6 +45,7 @@ case go
 			echo 'mouseport='^$mouseport
 			echo 'monitor='^$monitor
 			echo 'vgasize='^$vgasize
+			echo 'sysname='^$sysname
 			cd '#ec'
 			for(i in *){
 				echo -n $"i'='
