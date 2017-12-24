@@ -35,13 +35,13 @@ case go
 		@{
 			echo 'bootfile='^$bootfile
 			echo 'bootcmd=plan9rc'
-			echo 'bootargs=local!'^$fs
+			echo 'bootargs=local!'^$fs' '$"fsflags
 			if(~ $#password 1)
 				echo 'privpassword='^$password
 			if(~ $#nvram 1)
 				echo 'nvram='^$nvram
 			if(~ $fstype fossil)
-				echo 'venti=#S/'^$disk'/arenas'
+				echo 'venti=#S/'^$fsdisk'/arenas'
 			echo 'mouseport='^$mouseport
 			echo 'monitor='^$monitor
 			echo 'vgasize='^$vgasize

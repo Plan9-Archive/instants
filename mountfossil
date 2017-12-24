@@ -7,14 +7,16 @@ sname=fossil
 switch($1){
 case go
 	echo
-	echo Installing fossil and venti to /dev/$disk
+	echo Installing fossil and venti to /dev/$fsdisk
 	echo
 
-	sed 's/ZZZZ/'$disk'/g' initfossil.conf >/tmp/initfossil.conf
-	sed 's/ZZZZ/'$disk'/g' fossil.conf >/tmp/fossil.conf
-	sed 's/ZZZZ/'$disk'/g' venti.conf >/tmp/venti.conf
-	fs=/dev/$disk/fossil
+	sed 's/ZZZZ/'$fsdisk'/g' initfossil.conf >/tmp/initfossil.conf
+	sed 's/ZZZZ/'$fsdisk'/g' fossil.conf >/tmp/fossil.conf
+	sed 's/ZZZZ/'$fsdisk'/g' venti.conf >/tmp/venti.conf
+	fs=/dev/$fsdisk/fossil
 	export fs
+	fsflags=()
+	export fsflags
 
 	log Starting $fstype file server for $fs
 	unmount /n/newfs >[2]/dev/null
@@ -27,10 +29,10 @@ case go
 #	disk/mkfs -U -z 8192 -s /n/dist -d /n/fossil /sys/lib/sysconfig/proto/allproto
 #	echo 'home=/usr/$user; cd; . $home/lib/profile' >>/n/fossil/rc/bin/termrc
 	fossil/conf -w $fs /tmp/fossil.conf
-	venti/fmtarenas arenas /dev/$disk/arenas
-	venti/fmtisect isect /dev/$disk/isect
+	venti/fmtarenas arenas /dev/$fsdisk/arenas
+	venti/fmtisect isect /dev/$fsdisk/isect
 	venti/fmtindex /tmp/venti.conf
-	venti/conf -w /dev/$disk/arenas /tmp/venti.conf
+	venti/conf -w /dev/$fsdisk/arenas /tmp/venti.conf
 
 	log Mounting $fstype file server for $fs
 	while(! logprog mount -c /srv/$sname /n/newfs)
