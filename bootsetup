@@ -36,7 +36,7 @@ case go
 			echo 'bootfile='^$bootfile
 			echo 'bootcmd=plan9rc'
 			echo 'bootargs=local!'^$fs' '$"fsflags
-			echo 'privpasswd='^$password
+#			echo 'privpasswd='^$password
 			if(~ $#nvram 1)
 				echo 'nvram='^$nvram
 			echo 'mouseport='^$mouseport

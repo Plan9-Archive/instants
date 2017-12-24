@@ -30,7 +30,7 @@ case go
 	venti/fmtarenas arenas /dev/$disk/arenas
 	venti/fmtisect isect /dev/$disk/isect
 	venti/fmtindex /tmp/venti.conf
-	venti/conf -w /dev/$disk/arenas venti.conf
+	venti/conf -w /dev/$disk/arenas /tmp/venti.conf
 
 	log Mounting $fstype file server for $fs
 	while(! logprog mount -c /srv/$sname /n/newfs)
