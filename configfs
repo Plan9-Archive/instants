@@ -4,7 +4,10 @@
 
 switch($1){
 case checkdone
-	configfs=done
+	if(~ $#fstype 1 && test -e /bin/$fstype)
+		configfs=done
+	if not
+		configfs=ready
 	export configfs
 
 case go
