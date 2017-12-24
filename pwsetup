@@ -14,7 +14,8 @@ case go
 	echo 'Setup Password'
 	echo
 
-	prompt 'Password: ' $password
+	prompt 'Password: '
+	password=$rd
 	
 	export password
 }
