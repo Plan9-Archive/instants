@@ -47,11 +47,11 @@ case go
 		case dhcp
 			echo $se
 			if(~ $authservice yes)
-				echo '	ip='^$authip ' authdom='$ndbauthdom ' auth='^$sysname
+				echo '	ip='^$authip ' '$ndbauthdom ' auth='^$sysname
 		case manual
 			echo $se 'ip='^$ipaddr 'ipmask='^$ipmask 'ipgw='^$gwaddr
 			if(~ $authservice yes)
-				echo '	authdom='$ndbauthdom ' auth='^$sysname
+				echo '	'^$ndbauthdom ' auth='^$sysname
 			if(! ~ $#DNSSERVER 0){
 				echo '	'	'dns='^$DNSSERVER
 			}

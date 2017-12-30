@@ -6,6 +6,8 @@ switch($1){
 case checkdone
 	if(~ $#password 1)
 		pwsetup=done
+	if(~ $#ndbauthdom 1)
+		pwsetup=done
 	if not
 		pwsetup=ready
 	export pwsetup
