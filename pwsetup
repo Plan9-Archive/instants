@@ -20,7 +20,7 @@ case go
 	authservice=$rd
 	export authservice
 
-	switch($authservice)
+	switch($authservice){
 	case no
 		prompt 'Password: '
 		password=$rd
@@ -40,4 +40,5 @@ case go
 		factkey=`{cat /mnt/factotum/ctl |grep dp9ik}
 		ndbauthdom=`{echo $factkey(4) |sed 's/dom/authdom/'}
 		export ndbauthdom
+	}
 }
