@@ -39,7 +39,7 @@ case go
 			if(~ $#password 1)
 				echo 'privpassword='^$password
 			if(~ $authservice yes)
-				echo service=cpu
+				echo 'service=cpu'
 			if(~ $#nvram 1)
 				echo 'nvram='^$nvram
 			if(~ $fstype venti)

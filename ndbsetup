@@ -27,8 +27,10 @@ case go
 
 	if(~ $authservice yes){
 		if(~ $ipaddr xxx){
-			echo 'The ip address of this system should appear in the middle of this list'
+			echo
+			echo 'The ip address of this system should appear in the middle of this list:'
 			cat /net/ipselftab
+			echo
 			prompt 'Enter ip address for auth services'
 			authip=$rd
 		}
