@@ -19,8 +19,11 @@ case go
 	rm -f /tmp/copydone
 	prompt -d yes 'Copy the distribution to the fs now?' yes no
 	copynow=$rd
-	if(~ $copynow yes)
+	if(~ $copynow yes){
 		disk/mkfs -z 16372 -U -s /n/dist -d /n/newfs /sys/lib/sysconfig/proto/allproto
+		cat /n/newfs/sys/sys/src/ants/.hg/hgrc >/tmp/hgrc
+		mv /tmp/hgrc /n/newfs/sys/sys/src/ants/.hg/hgrc
+	}
 	touch /tmp/copydone
 
 case checkdone
