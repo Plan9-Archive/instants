@@ -6,7 +6,7 @@
 fn autotype {
 	switch($fstype){
 	case venti
-		echo -a 9fat -a nvram -a fossil -a arenas -a isect
+		echo -a 9fat -a nvram -a fossil -a arenas -a isect -a bloom
 	case fossil
 		echo -a 9fat -a nvram -a fossil
 	case cwfs cwfs64 cwfs64x

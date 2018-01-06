@@ -48,6 +48,18 @@ case go
 	fsisect=$rd
 	export fsisect
 
+	files=(`{ls /dev/sd*/bloom* /dev/fs/bloom* >[2]/dev/null})
+	if(! ~ $#files 0)
+		ls -l $files
+	echo
+	if(~ $#files 1)
+		default=(-d $files)
+	if not
+		default=()
+	prompt $default 'Venti bloom partition' $files
+	fsbloom=$rd
+	export fsbloom
+
 	if(! test -f $fs){
 		echo 'Fossil partition not found!'
 		mountfs=ready
@@ -66,6 +78,12 @@ case go
 		export mountfs
 		exit oops
 	}
+	if(! test -f $fsbloom){
+		echo 'Venti bloom partition not found!'
+		mountfs=ready
+		export mountfs
+		exit oops
+	}
 
 	echo fsys main config $fs >/tmp/initfossil.conf
 	cat initfossil.conf >>/tmp/initfossil.conf
@@ -74,6 +92,7 @@ case go
 	echo index main >/tmp/venti.conf
 	echo arenas $fsarenas >>/tmp/venti.conf
 	echo isect $fsisect >>/tmp/venti.conf
+	echo bloom $fsbloom >>/tmp/venti.conf
 	cat venti.conf >>/tmp/venti.conf
 
 	log Starting fossil file server for $fs
@@ -85,6 +104,7 @@ case go
 	fossil/conf -w $fs /tmp/fossil.conf
 	venti/fmtarenas arenas $fsarenas
 	venti/fmtisect isect $fsisect
+	venti/fmtbloom $fsbloom
 	venti/fmtindex /tmp/venti.conf
 	venti/conf -w $fsarenas /tmp/venti.conf
 
